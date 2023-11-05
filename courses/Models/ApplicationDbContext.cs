@@ -28,6 +28,10 @@ namespace courses.Models
                 .HasMany(c => c.Authors)
                 .WithMany(a => a.Courses)
                 .UsingEntity(j => j.ToTable("Authorship"));
+
+            modelBuilder
+                .Entity<Student>()
+                .HasAlternateKey(c => c.Email);
         }
     }
 }
