@@ -4,20 +4,15 @@ namespace courses.Models
 {
     public class ApplicationDbContext : DbContext
     {
-        private readonly string connectionString;
         public DbSet<Student> Students { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
 
-        public ApplicationDbContext(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlServer("Server=LAPTOP-RA7DRFGM;Database=TestDB;Integrated Security=true;TrustServerCertificate=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
