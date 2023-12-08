@@ -16,3 +16,23 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.courses-box{
+    margin: auto;
+    position: relative;
+}
+
+.course-card{
+    font-size: 12px;
+    background-color: ghostwhite;
+    border-radius: 30px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.course-card:hover {
+    background-color : red;
+}
+

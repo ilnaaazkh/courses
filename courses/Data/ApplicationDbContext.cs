@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using courses.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace courses.Models
+namespace courses.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -10,9 +11,14 @@ namespace courses.Models
         public DbSet<Module> Modules { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
 
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base()
+        {
+
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=LAPTOP-RA7DRFGM;Database=TestDB;Integrated Security=true;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("Server=LAPTOP-RA7DRFGM;Database=SkillTechDB;Integrated Security=true;TrustServerCertificate=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

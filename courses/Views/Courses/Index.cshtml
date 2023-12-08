@@ -1,0 +1,15 @@
+﻿@{
+	ViewData["Title"] = "Index";
+}
+
+<div class="courses-box">
+		@foreach (var course in ViewBag.Courses)
+		{
+			<div class="course-card">
+				<h1>@course.Title</h1>
+				<h2>@course.Description</h2>
+				<h2>Длительность: @course.Duration семестр</h2>
+			</div>
+		}
+</div>
+
