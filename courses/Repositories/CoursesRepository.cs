@@ -23,19 +23,20 @@ namespace courses.Repositories
             throw new NotImplementedException();
         }
 
-        public Course Get(int id)
+
+		public Course Get(int id)
         {
             throw new NotImplementedException();
         }
 
         public IEnumerable<Course> GetAll()
         {
-            throw new NotImplementedException();
+            return context.Courses;
         }
 
-        public IEnumerable<Course> Select()
-        {
-            return context.Courses.ToList();
-        }
-    }
+		public Course GetCourse(int id)
+		{
+            return context.Courses.FirstOrDefault(c => c.Id == id);
+		}
+	}
 }

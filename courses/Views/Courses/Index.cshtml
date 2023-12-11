@@ -1,15 +1,17 @@
 ﻿@{
 	ViewData["Title"] = "Index";
+	Layout = "_Layout";
 }
 
 <div class="courses-box">
-		@foreach (var course in ViewBag.Courses)
-		{
+	@foreach (var course in ViewBag.Courses)
+	{
+		<a href=@Url.RouteUrl(new { controller = "Courses", action = "Course", id = course.Id})>
 			<div class="course-card">
 				<h1>@course.Title</h1>
 				<h2>@course.Description</h2>
 				<h2>Длительность: @course.Duration семестр</h2>
 			</div>
-		}
+		</a>
+	}
 </div>
-
