@@ -18,7 +18,14 @@ namespace courses.Controllers
 
         public IActionResult Index()
         {   
-            ViewBag.Courses = coursesRepository.Select();
+            ViewBag.Courses = coursesRepository.GetAll();
+            return View();
+        }
+
+        public IActionResult Course(int id)
+        {
+            var course = coursesRepository.GetCourse(id);
+            ViewBag.Course = course;
             return View();
         }
     }
