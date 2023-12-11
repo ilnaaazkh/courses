@@ -23,7 +23,8 @@ namespace courses.Repositories
             throw new NotImplementedException();
         }
 
-        public Course Get(int id)
+
+		public Course Get(int id)
         {
             throw new NotImplementedException();
         }

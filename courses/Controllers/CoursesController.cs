@@ -25,6 +25,10 @@ namespace courses.Controllers
         public IActionResult Course(int id)
         {
             var course = coursesRepository.GetCourse(id);
+            if(course == null)
+            {
+                return Redirect("/courses/index"); ;
+            }
             ViewBag.Course = course;
             return View();
         }

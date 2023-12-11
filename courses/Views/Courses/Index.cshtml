@@ -1,48 +1,17 @@
 ﻿@{
 	ViewData["Title"] = "Index";
-	Layout = null;
+	Layout = "_Layout";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewData["Title"] - courses</title>
-	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/courses.styles.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />
-</head>
-<body>
-	<header>
-		<div class="logo">
-			<a href="/">
-				<img src="~/img/logo.png" height="100" width="300"/>
-			</a>
-		</div>
-		<div class="menu">
-			<ul>
-				<li><a href="/">Зарегистрироваться</a></li>
-				<li><a href="/">Войти</a></li>
-			</ul>
-		</div>
-	</header>
-	<div class="main">
-		<div class="courses-box">
-			@foreach (var course in ViewBag.Courses)
-			{
-				
-				<div class="course-card">
-					<h1>@course.Title</h1>
-					<h2>@course.Description</h2>
-					<h2>Длительность: @course.Duration семестр</h2>
-				</div>
-			}
-		</div>
-	</div>
-	<script src="~/lib/jquery/dist/jquery.min.js"></script>
-	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="~/js/site.js" asp-append-version="true"></script>
-</body>
-</html>
 
+<div class="courses-box">
+	@foreach (var course in ViewBag.Courses)
+	{
+		<a href=@Url.RouteUrl(new { controller = "Courses", action = "Course", id = course.Id})>
+			<div class="course-card">
+				<h1>@course.Title</h1>
+				<h2>@course.Description</h2>
+				<h2>Длительность: @course.Duration семестр</h2>
+			</div>
+		</a>
+	}
+</div>
