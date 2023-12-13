@@ -10,15 +10,15 @@
 	<link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />
 </head>
 <body>
-	<header>
+	<header class="">
 		<div class="logo">
 			<a href="/">
-				<img src="~/img/logo.png" height="100" width="300" />
+				<img src="~/img/logo.png" height="50" width="150" />
 			</a>
 		</div>
-		<div class="menu">
+		<div class="menu me-auto">
 			<ul>
-				<li><a href="/">Зарегистрироваться</a></li>
+				<li><a asp-controller="User" asp-action="Register">Зарегистрироваться</a></li>
 				<li><a href="/">Войти</a></li>
 			</ul>
 		</div>
