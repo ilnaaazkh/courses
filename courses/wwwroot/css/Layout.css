@@ -1,0 +1,14 @@
+﻿a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    color:black;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+}

@@ -6,23 +6,78 @@
 	<title>@ViewData["Title"] - courses</title>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/courses.styles.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
 </head>
+
 <body>
-	<header>
-		<div class="logo">
-			<a href="/">
-				<img src="~/img/logo.png" height="100" width="300" />
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+		<!-- Container wrapper -->
+		<div class="container">
+			<!-- Navbar brand -->
+			<a class="navbar-brand me-2" href="/">
+				<img src="/img/logo.png"
+					 height="30"
+					 alt="MDB Logo"
+					 loading="lazy"
+					 style="margin-top: -1px;" />
 			</a>
+
+			@if (!User.Identity.IsAuthenticated)
+			{
+				<!-- Collapsible wrapper -->
+				<div class="collapse navbar-collapse" id="navbarButtonsExample">
+					<!-- Left links -->
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					</ul>
+					<!-- Left links -->
+
+					<div class="d-flex align-items-center">
+						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
+							<a asp-controller="User" asp-action="Login">Войти</a>
+						</button>
+						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
+							<a asp-controller="User" asp-action="Register">Зарегистрироваться</a>
+						</button>
+					</div>
+				</div>
+				<!-- Collapsible wrapper -->
+			}
+			@if (User.Identity.IsAuthenticated)
+			{
+				<div class="collapse navbar-collapse" id="navbarButtonsExample">
+					<!-- Left links -->
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li>
+							<div class="dropdown">
+								<a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Мои курсы
+								</a>
+
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#">Курс 1</a></li>
+									<li><a class="dropdown-item" href="#">Курс 2</a></li>
+									<li><a class="dropdown-item" href="#">Курс 3</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+
+					<!-- Left links -->
+					<div class="d-flex align-items-center">
+						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
+							<a href="#">@User.Identity.Name</a>
+						</button>
+						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
+							<a asp-controller="User" asp-action="LogOut">Выйти</a>
+						</button>
+					</div>
+				</div>
+			}
 		</div>
-		<div class="menu">
-			<ul>
-				<li><a href="/">Зарегистрироваться</a></li>
-				<li><a href="/">Войти</a></li>
-			</ul>
-		</div>
-	</header>
+		<!-- Container wrapper -->
+	</nav>
+	<!-- Navbar -->
 	<div class="main">
 		@RenderBody();
 	</div>

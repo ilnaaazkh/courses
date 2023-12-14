@@ -1,9 +1,10 @@
 ﻿using courses.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace courses.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<Student, ApplicationRole, int>
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Author> Authors { get; set; }
@@ -38,6 +39,8 @@ namespace courses.Data
             modelBuilder
                 .Entity<Student>()
                 .HasAlternateKey(c => c.Email);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
