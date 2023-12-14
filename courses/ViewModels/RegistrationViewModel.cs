@@ -1,17 +1,36 @@
-﻿namespace courses.ViewModels
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace courses.ViewModels
 {
 	public class RegistrationViewModel
 	{
-		public string Name { get; set; }
+		[Required(ErrorMessage = "(это поле является обязательным)")]
+		[MaxLength(15)]
+		[Display(Name = "Имя")]
+		public string Name { get; set; } = null!;
 
+		//[Required]
+		[MaxLength(15)]
+		[Display(Name = "Имя")]
 		public string? Surname { get; set; }
 
-		public string Email { get; set; }
+        [Required(ErrorMessage = "(это поле является обязательным)")]
+        [Display(Name = "Email")]
+		[EmailAddress]
+		public string Email { get; set; } = null!;
 
-		public string Password { get; set; }
+        [Required(ErrorMessage = "(это поле является обязательным)")]
+        [DataType(DataType.Password)]
+		[Display(Name = "Пароль")]
+		public string Password { get; set; } = null!;
 
-		public string ConfirmPassword { get; set; }
+        [Required(ErrorMessage = "(это поле является обязательным)")]
+        [DataType(DataType.Password)]
+		[Compare("Password", ErrorMessage = "Пароли не совпадают")]
+		[Display(Name = "Подтвердите пароль")]
+		public string ConfirmPassword { get; set; } = null!;
 
-		public string ReturnUrl { get; set; }
+		//public string ReturnUrl { get; set; }
 	}
 }

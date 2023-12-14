@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace courses.Models
 {
-    public class Student
+    public class Student : IdentityUser<int> 
     {
-        public int Id { get; set; }
+        //TODO: поменять свойство Id на Guid перед этим узнав, что это такое
 
         [Required]
         [MaxLength(15)]
@@ -15,13 +15,10 @@ namespace courses.Models
         [MaxLength(15)]
         public string? Surname { get; set; }
 
-        [Required]
+        /*[*Required]
         [MaxLength(25)]
-        //[RegularExpression("[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}", ErrorMessage = "Невалидный адрес электронной почты")]
-        public string Email { get; set; } = null!;
-
-        [Required] //TODO: Add constraints for password
-        public string Password { get; set; } = null!;//hashcode 
+        [RegularExpression("[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}", ErrorMessage = "Невалидный адрес электронной почты")]
+        public string Email { get; set; } = null!;*/
 
         public List<Course> Courses { get; set; } = new();
     }

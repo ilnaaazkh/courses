@@ -15,7 +15,9 @@ namespace courses.Repositories
 
 		public bool Create(Student entity)
 		{
-			throw new NotImplementedException();
+			var result = context.Students.Add(entity);
+			var res = context.SaveChanges();
+			return true;
 		}
 
 		public bool Delete(Student entity)
