@@ -1,0 +1,50 @@
+﻿@using courses.ViewModels;
+@model LoginViewModel;
+@{
+    ViewData["Title"] = "Login";
+
+}
+
+<link rel="stylesheet" href="~/css/LoginForm.css" asp-append-version="true" />
+
+<section>
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center mb-5">Вход</h2>
+
+                            <form asp-controller="user" asp-action="login" method="post">
+                                <input asp-for="ReturnUrl" value = "/" type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Email" type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <label asp-for="Email" class="form-label" for="form3Example1cg">E-mail</label>
+                                    <span asp-validation-for="Email"></span>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Password" type="password" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <label asp-for="Password" class="form-label" for="form3Example1cg">Пароль</label>
+                                    <span asp-validation-for="Password"></span>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit"
+                                            class="btn btn-success btn-block btn-lg btn-grad">
+                                        Войти
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

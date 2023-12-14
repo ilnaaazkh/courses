@@ -14,19 +14,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     .AddIdentity<Student, ApplicationRole>(config =>
     {
         //TODO: поменять требования к паролю
-		config.Password.RequireDigit = false;
-		config.Password.RequireLowercase = false;
-		config.Password.RequireNonAlphanumeric = false;
-		config.Password.RequireUppercase = false;
-		config.Password.RequiredLength = 6;
-	})
+        config.Password.RequireDigit = false;
+        config.Password.RequireLowercase = false;
+        config.Password.RequireNonAlphanumeric = false;
+        config.Password.RequireUppercase = false;
+        config.Password.RequiredLength = 6;
+    })
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-/*builder.Services.ConfigureApplicationCookie(config =>
+builder.Services.ConfigureApplicationCookie(config =>
 {
     config.LoginPath = "/User/Login";
     config.AccessDeniedPath = "/";
-});*/
+});
 
 builder.Services.AddScoped<ICoursesRepository, CoursesRepository>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
