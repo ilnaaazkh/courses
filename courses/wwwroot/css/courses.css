@@ -34,11 +34,14 @@
     }
 
 .courses-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     margin: auto;
     position: relative;
 }
 
-.course-card {
+/*.course-card {
     font-size: 12px;
     background-color: ghostwhite;
     border-radius: 30px;
@@ -46,4 +49,38 @@
     margin: 10px;
     text-align: center;
     cursor: pointer;
+}*/
+
+.card {
+    border-radius: 30px;
+    max-height: 300px;
+    max-width: 300px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.card-body {
+    overflow: hidden;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%);
+    margin: 10px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: ghostwhite;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 30px;
+    display: block;
+}
+
+    .btn-grad:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+
+.btn {
+    max-height: 50px;
 }
