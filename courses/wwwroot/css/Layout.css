@@ -16,3 +16,7 @@ a:hover{
 .main{
     align-content: center;
 }
+
+.navbar{
+    margin-bottom: 50px;
+}

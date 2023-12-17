@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewData["Title"] - courses</title>
+	<title>TechSkills</title>
+	<link rel="shortcut icon" href="~/img/icon.png" />
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
@@ -18,31 +19,10 @@
 			<a class="navbar-brand me-2" href="/">
 				<img src="/img/logo.png"
 					 height="30"
-					 alt="MDB Logo"
 					 loading="lazy"
 					 style="margin-top: -1px;" />
 			</a>
 
-			@if (!User.Identity.IsAuthenticated)
-			{
-				<!-- Collapsible wrapper -->
-				<div class="collapse navbar-collapse" id="navbarButtonsExample">
-					<!-- Left links -->
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					</ul>
-					<!-- Left links -->
-
-					<div class="d-flex align-items-center">
-						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
-							<a asp-controller="User" asp-action="Login">Войти</a>
-						</button>
-						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
-							<a asp-controller="User" asp-action="Register">Зарегистрироваться</a>
-						</button>
-					</div>
-				</div>
-				<!-- Collapsible wrapper -->
-			}
 			@if (User.Identity.IsAuthenticated)
 			{
 				<div class="collapse navbar-collapse" id="navbarButtonsExample">
@@ -66,13 +46,33 @@
 					<!-- Left links -->
 					<div class="d-flex align-items-center">
 						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
-							<a href="#">@User.Identity.Name</a>
+							<a asp-action="Manage" asp-controller="User">@User.Identity.Name </a>
 						</button>
 						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
 							<a asp-controller="User" asp-action="LogOut">Выйти</a>
 						</button>
 					</div>
 				</div>
+			}
+			else
+			{
+				<!-- Collapsible wrapper -->
+				<div class="collapse navbar-collapse" id="navbarButtonsExample">
+					<!-- Left links -->
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					</ul>
+					<!-- Left links -->
+
+					<div class="d-flex align-items-center">
+						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
+							<a asp-controller="User" asp-action="Login">Войти</a>
+						</button>
+						<button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
+							<a asp-controller="User" asp-action="Register">Зарегистрироваться</a>
+						</button>
+					</div>
+				</div>
+				<!-- Collapsible wrapper -->
 			}
 		</div>
 		<!-- Container wrapper -->
