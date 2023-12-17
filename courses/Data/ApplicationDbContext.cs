@@ -4,10 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace courses.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<Student, ApplicationRole, int>
+    public class ApplicationDbContext : IdentityDbContext<User, ApplicationRole, int>
     {
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Author> Authors { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
@@ -33,11 +31,11 @@ namespace courses.Data
             modelBuilder
                 .Entity<Course>()
                 .HasMany(c => c.Authors)
-                .WithMany(a => a.Courses)
+                .WithMany(a => a.CoursesAuthorship)
                 .UsingEntity(j => j.ToTable("Authorship"));
 
             modelBuilder
-                .Entity<Student>()
+                .Entity<User>()
                 .HasAlternateKey(c => c.Email);
 
             base.OnModelCreating(modelBuilder);

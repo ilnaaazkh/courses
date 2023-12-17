@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")))
-    .AddIdentity<Student, ApplicationRole>(config =>
+    .AddIdentity<User, ApplicationRole>(config =>
     {
         //TODO: поменять требования к паролю
         config.Password.RequireDigit = false;

@@ -16,8 +16,8 @@ namespace courses.Models
         //TODO: Check if duration > 0
         public int? Duration { get; set; } //In semestrs
 
-        public List<Student> Students { get; set; } = new();
-        public List<Author> Authors { get; set; } = new();
+        public List<User> Students { get; set; } = new();
+        public List<User> Authors { get; set; } = new();
 
         public List<Module> Modules { get; set; } = new(); 
     }
