@@ -13,24 +13,24 @@ namespace courses.Repositories
 			this.context = context;
 		}
 
-		public bool Create(User entity)
+		public bool Create(Student entity)
 		{
-			var result = context.Users.Add(entity);
+			var result = context.Students.Add(entity);
 			var res = context.SaveChanges();
 			return true;
 		}
 
-		public bool Delete(User entity)
+		public bool Delete(Student entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public User Get(int id)
+		public Student Get(int id)
 		{
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<User> GetAll()
+		public IEnumerable<Student> GetAll()
 		{
 			throw new NotImplementedException();
 		}

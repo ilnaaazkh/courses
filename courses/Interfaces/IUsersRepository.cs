@@ -2,7 +2,7 @@
 
 namespace courses.Interfaces
 {
-	public interface IUsersRepository : IRepository<User>
+	public interface IUsersRepository : IRepository<Student>
 	{
 	}
 }

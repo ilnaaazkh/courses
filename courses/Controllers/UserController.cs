@@ -11,12 +11,12 @@ namespace courses.Controllers
 	public class UserController : Controller
 	{
 		private readonly IUsersRepository usersRepository;
-		private readonly UserManager<User> userManager;
-		private readonly SignInManager<User> signInManager;
+		private readonly UserManager<Student> userManager;
+		private readonly SignInManager<Student> signInManager;
 
 		public UserController(IUsersRepository usersRepository, 
-				UserManager<User> userManager,
-				SignInManager<User> signInManager)
+				UserManager<Student> userManager,
+				SignInManager<Student> signInManager)
 		{
 			this.usersRepository = usersRepository;
 			this.userManager = userManager;
@@ -38,8 +38,8 @@ namespace courses.Controllers
 				return View(model);
 			}
 
-			User user = new User() { UserName = model.Email, Name = model.Name, Surname = model.Surname, Email = model.Email };
-			IdentityResult result = await userManager.CreateAsync(user, model.Password);
+			Student student = new Student() { UserName = model.Email, Name = model.Name, Surname = model.Surname, Email = model.Email };
+			IdentityResult result = await userManager.CreateAsync(student, model.Password);
 
 			if (result.Succeeded)
 			{
