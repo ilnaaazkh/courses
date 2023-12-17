@@ -51,7 +51,7 @@ namespace courses.Controllers
 		[AllowAnonymous]
 		public IActionResult Login(string returnUrl)
 		{
-			ViewBag.returnUrl = "/";
+			ViewBag.returnUrl = returnUrl == null ? "/" : returnUrl;
 			return View();
 		}
 		//ilnaz.khuzin2016@gmail.com
@@ -81,6 +81,12 @@ namespace courses.Controllers
 			await signInManager.SignOutAsync();
             return Redirect("/");
         }
+
+		public IActionResult Manage()
+		{
+			return View();
+		}
+
         public IActionResult Index()
 		{
 			return View();
