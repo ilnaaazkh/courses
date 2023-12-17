@@ -1,0 +1,44 @@
+﻿.modules-box {
+    position:center;
+}
+
+h2{
+   text-align:center;
+   margin-bottom: 50px;
+}
+
+
+.card {
+    border-radius: 20px;
+    margin-top: 0px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.card-body {
+    overflow: hidden;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%);
+    margin: 10px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: ghostwhite;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 30px;
+    display: block;
+}
+
+    .btn-grad:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+
+.btn {
+    max-height: 50px;
+}

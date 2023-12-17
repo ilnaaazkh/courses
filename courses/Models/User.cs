@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace courses.Models
 {
-    public class Student : IdentityUser<int> 
+    public class User : IdentityUser<int> 
     {
         //TODO: поменять свойство Id на Guid перед этим узнав, что это такое
 
@@ -21,5 +21,7 @@ namespace courses.Models
         public string Email { get; set; } = null!;*/
 
         public List<Course> Courses { get; set; } = new();
+
+        public List<Course> CoursesAuthorship { get; set; } = new();
     }
 }
