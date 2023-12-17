@@ -2,6 +2,7 @@
 using courses.Interfaces;
 using courses.Models;
 using courses.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -29,6 +30,7 @@ namespace courses.Controllers
             {
                 return Redirect("/courses/index"); ;
             }
+
             ViewBag.Course = course;
             return View();
         }

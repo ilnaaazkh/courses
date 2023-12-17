@@ -1,11 +1,19 @@
-﻿
-@{
-    ViewData["Title"] = "Course";
-}
+﻿<link rel="stylesheet" href="~/css/course.css" asp-append-version="true" />
 
-<h1>Course</h1>
-
-<div>
-    <h2>@ViewBag.course.Title</h2>
+<div class="course-title">
+	<h2>@ViewBag.course.Title</h2>
 </div>
 
+
+<div class="modules-box">
+	@foreach (var module in ViewBag.course.Modules)
+	{
+		<a>
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">@module.Title</h5>
+				</div>
+			</div>
+		</a>
+	}
+</div>

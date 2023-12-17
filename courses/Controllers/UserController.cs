@@ -14,7 +14,7 @@ namespace courses.Controllers
 		private readonly UserManager<User> userManager;
 		private readonly SignInManager<User> signInManager;
 
-		public UserController(IUsersRepository usersRepository, 
+		public UserController(IUsersRepository usersRepository,
 				UserManager<User> userManager,
 				SignInManager<User> signInManager)
 		{
@@ -54,16 +54,18 @@ namespace courses.Controllers
 			ViewBag.returnUrl = returnUrl == null ? "/" : returnUrl;
 			return View();
 		}
+
+
 		//ilnaz.khuzin2016@gmail.com
 		//Demo1234
 		[HttpPost]
 		[AllowAnonymous]
-        public async Task<IActionResult> LoginAsync(LoginViewModel model)
-        {
+		public async Task<IActionResult> LoginAsync(LoginViewModel model)
+		{
 			if (!ModelState.IsValid)
 			{
 				return View(model);
-            }
+			}
 
 			var user = await userManager.FindByNameAsync(model.Email); //Email == UserName
 
@@ -73,21 +75,64 @@ namespace courses.Controllers
 				return Redirect(model.ReturnUrl);
 			}
 
-            return View(model);
-        }
+			return View(model);
+		}
 
 		public async Task<IActionResult> LogOutAsync()
 		{
 			await signInManager.SignOutAsync();
-            return Redirect("/");
-        }
-
-		public IActionResult Manage()
-		{
-			return View();
+			return Redirect("/");
 		}
 
-        public IActionResult Index()
+		public async Task<IActionResult> Manage()
+		{
+			User user = await userManager.FindByEmailAsync(User.Identity.Name);
+
+			if (user != null)
+			{
+				ManageViewModel model = new ManageViewModel()
+				{
+					Name = user.Name,
+					Surname = user.Surname
+				};
+				return View(model);
+			}
+			return RedirectToAction("Login", "User");
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> ManageAsync(ManageViewModel model)
+		{
+			if (!ModelState.IsValid)
+			{
+				return View(model);
+			}
+
+			User user = await userManager.FindByEmailAsync(User.Identity.Name);
+			if(user != null)
+			{
+				user.Name = model.Name;
+				user.Surname = model.Surname;
+				
+
+				IdentityResult result = await userManager.UpdateAsync(user);
+				if (result.Succeeded)
+				{
+					return RedirectToAction("Index", "Courses");
+				}
+				else
+				{
+					ModelState.AddModelError("", "Что-то пошло не так");
+				}
+			}
+			else
+			{
+				ModelState.AddModelError("", "Пользователь не найден");
+			}
+			return View(model);
+		}
+
+		public IActionResult Index()
 		{
 			return View();
 		}

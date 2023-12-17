@@ -36,7 +36,21 @@ namespace courses.Repositories
 
 		public Course GetCourse(int id)
 		{
-            return context.Courses.FirstOrDefault(c => c.Id == id);
+            return context.Courses.Include(c => c.Modules).FirstOrDefault(c => c.Id == id);
 		}
+
+        public bool AddStudent(User user, Course course)
+        {
+            try
+            {
+                course.Students.Add(user);
+                context.SaveChanges();
+                return true;
+            } catch (Exception ex)
+            {
+				course.Students.Remove(user);
+                return false;
+			}
+        }
 	}
 }

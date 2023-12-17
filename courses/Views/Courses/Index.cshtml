@@ -1,5 +1,4 @@
 ﻿@{
-	ViewData["Title"] = "Index";
 	Layout = "_Layout";
 }
 <link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />
@@ -7,24 +6,16 @@
 <div class="courses-box">
 	@foreach (var course in ViewBag.Courses)
 	{
-		@*<a href=@Url.RouteUrl(new { controller = "Courses", action = "Course", id = course.Id})>
-			<div class="course-card">
-		<h1>@course.Title</h1>
-		<h2>@course.Description</h2>
-		<h2>Длительность: @course.Duration семестр</h2>
-		</div>*@
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">@course.Title</h5>
-					<p class="card-text">@course.Description</p>
-				</div>
-
-			<a href=@Url.RouteUrl(new { controller = "Courses", action = "Course", id = course.Id}) 
-				class="btn btn-primary btn-lg active btn-grad" role="button" aria-pressed="true">
-					Начать учиться!
-				</a>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">@course.Title</h5>
+				<p class="card-text">@course.Description</p>
 			</div>
-		@*</a>*@
 
+			<a href=@Url.RouteUrl(new { controller = "Courses", action = "Course", id = course.Id})
+		   class="btn btn-primary btn-lg active btn-grad" role="button" aria-pressed="true">
+				Начать учиться!
+			</a>
+		</div>
 	}
 </div>
