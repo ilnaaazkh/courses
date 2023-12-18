@@ -32,12 +32,21 @@
                                     </button>
                                 </div>
 
-                                @*<p class="text-center text-muted mt-5 mb-0">
-                                    У вас уже есть аккаунт? <a href="#!"
-                                                               class="fw-bold text-body"><u>Войти</u></a>
-                                </p>*@
-
                             </form>
+
+                            <div class="d-flex justify-content-center">
+                                <a asp-action="Courses" asp-controller = "User"
+                                        class="btn btn-success btn-block btn-lg btn-grad">
+                                    мое обучение
+                                </a>
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <a asp-action="Courses" asp-controller="User"
+                                   class="btn btn-success btn-block btn-lg btn-grad">
+                                    Мои курсы
+                                </a>
+                            </div>
 
                         </div>
                     </div>

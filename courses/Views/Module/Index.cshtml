@@ -1,0 +1,21 @@
+﻿@model Module
+<link rel="stylesheet" href="~/css/module.css" asp-append-version="true" />
+
+
+<div class="course-title">
+	<h2>@Model.Title</h2>
+</div>
+
+
+<div class="lessons-box">
+	@foreach (var lesson in Model.Lessons)
+	{
+		<a href=@Url.RouteUrl(new { controller = "Lesson", action = "Index", id = lesson.Id})>
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">@lesson.Title</h5>
+				</div>
+			</div>
+		</a>
+	}
+</div>

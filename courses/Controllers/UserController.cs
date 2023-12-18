@@ -58,6 +58,8 @@ namespace courses.Controllers
 
 		//ilnaz.khuzin2016@gmail.com
 		//Demo1234
+		//jamil.yakupov@mail.ru
+		//qwert1234
 		[HttpPost]
 		[AllowAnonymous]
 		public async Task<IActionResult> LoginAsync(LoginViewModel model)
@@ -135,6 +137,13 @@ namespace courses.Controllers
 		public IActionResult Index()
 		{
 			return View();
+		}
+
+		public async Task<IActionResult> CoursesAsync()
+		{
+			var user = await userManager.FindByEmailAsync(User.Identity.Name);
+			var courses = usersRepository.GetUserWithCourses(user.Id).Courses;
+			return View(courses);
 		}
 	}
 }

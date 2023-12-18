@@ -1,6 +1,7 @@
 ﻿using courses.Data;
 using courses.Interfaces;
 using courses.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace courses.Repositories
 {
@@ -33,6 +34,12 @@ namespace courses.Repositories
 		public IEnumerable<User> GetAll()
 		{
 			throw new NotImplementedException();
+		}
+
+		public User GetUserWithCourses(int id)
+		{
+			User user = context.Users.Include(user => user.Courses).Where(user => user.Id == id).First();
+			return user;
 		}
 	}
 }

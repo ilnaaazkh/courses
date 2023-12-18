@@ -30,6 +30,9 @@ builder.Services.ConfigureApplicationCookie(config =>
 
 builder.Services.AddScoped<ICoursesRepository, CoursesRepository>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IModulesRepository, ModulesRepository>();
+builder.Services.AddScoped<ILessonsRepository, LessonsRepository>();
+
 
 var app = builder.Build();
 
