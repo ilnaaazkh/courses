@@ -145,5 +145,12 @@ namespace courses.Controllers
 			var courses = usersRepository.GetUserWithCourses(user.Id).Courses;
 			return View(courses);
 		}
+
+		public async Task<IActionResult> OwnCoursesAsync()
+		{
+			var user = await userManager.FindByEmailAsync(User.Identity.Name);
+			var courses = usersRepository.GetUserWithOwnCourses(user.Id).CoursesAuthorship;
+			return View(courses);
+		}
 	}
 }

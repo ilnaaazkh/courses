@@ -41,5 +41,11 @@ namespace courses.Repositories
 			User user = context.Users.Include(user => user.Courses).Where(user => user.Id == id).First();
 			return user;
 		}
+
+		public User GetUserWithOwnCourses(int id)
+		{
+			User user = context.Users.Include(user => user.CoursesAuthorship).Where(user => user.Id == id).First();
+			return user;
+		}
 	}
 }

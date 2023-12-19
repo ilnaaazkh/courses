@@ -1,0 +1,24 @@
+﻿@model courses.ViewModels.CourseCreateViewModel;
+<h1 class="text-center">Создать новый курс</h1>
+
+
+<div class="container">
+	<form asp-action="Create" asp-controller="Courses" method="post">
+		<div class="form-outline" data-mdb-input-init>
+			<label class="form-label" for="typeText">Название курса</label>
+			<input asp-for="Title" type="text" id="typeText" class="form-control" />
+		</div>
+
+		<div class="form-outline" data-mdb-input-init>
+			<label class="form-label">Описание курса</label>
+			<textarea asp-for="Description" class="form-control" rows="4" maxlength="400"></textarea>
+		</div>
+
+		<div class="d-flex justify-content-center">
+			<button type="submit"
+					class="btn btn-success btn-block btn-lg btn-grad">
+				Создать
+			</button>
+		</div>
+	</form>
+</div>
