@@ -34,36 +34,35 @@
 	</form>
 </div>
 
-@*<div class="courses-box container">
-	@foreach (var module in Model.Modules)
+<div class="container justify-content-center mx-auto w-50">
+	@foreach (var lesson in Model.Lessons)
 	{
 		<div class="row">
 			<div class="col-8">
-				<a href="#">
+				<a href=@Url.RouteUrl(new { controller = "Lesson", action = "Index", id = lesson.Id})>
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">@module.Title</h5>
+							<h5 class="card-title">@lesson.Title</h5>
 						</div>
 					</div>
 				</a>
 			</div>
 
 			<div class="col">
-				<a class="card" href=@Url.RouteUrl(new { controller = "Module", action = "Edit", id = module.Id})>
+				<a class="card" href= @Url.RouteUrl(new { controller = "Lesson", action = "Edit", id = lesson.Id})>
 					<img alt="Edit" src="/img/edit.svg" width="32" height="32" />
 				</a>
 			</div>
 			<div class="col">
-
-				<form asp-action="Delete" asp-controller="Module" asp-route-id="@module.Id">
+				<form asp-action="Delete" asp-controller="Lesson" asp-route-id="@lesson.Id">
 					<button type="submit" class="btn delete-btn">
-						Удалить модуль
+						Удалить урок
 					</button>
 				</form>
 			</div>
 		</div>
 	}
-</div>*@
+</div>
 
-@*<a asp-action="Create" asp-controller="Courses" class="btn btn-primary btn-grad button">Создать курс</a>*@
+<a class="btn btn-primary btn-grad button" href=@Url.RouteUrl(new { controller = "Lesson", action = "Create", moduleId = Model.Id})>Добавить урок</a>
 

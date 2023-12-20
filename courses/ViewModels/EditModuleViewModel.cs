@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using courses.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace courses.ViewModels
 {
@@ -19,5 +20,7 @@ namespace courses.ViewModels
 
 		[Required]
 		public int OrderNumber { get; set; }
+
+		public List<Lesson> Lessons { get; set; } = new();
 	}
 }

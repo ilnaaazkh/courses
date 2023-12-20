@@ -33,7 +33,7 @@
 	{
 		<div class="row">
 			<div class="col-8">
-				<a href="#">
+				<a href=@Url.RouteUrl(new { controller = "Module", action = "Index", id = module.Id})>
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">@module.Title</h5>

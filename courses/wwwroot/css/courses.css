@@ -35,7 +35,7 @@
 
 .courses-box {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-wrap: wrap;
     margin: auto;
     position: relative;

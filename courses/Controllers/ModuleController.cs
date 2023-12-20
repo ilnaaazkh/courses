@@ -46,7 +46,8 @@ namespace courses.Controllers
 				Description = module.Description,
 				Title = module.Title,
 				OrderNumber = module.OrderNumber,
-				CourseId = module.CourseId
+				CourseId = module.CourseId,
+				Lessons = module.Lessons
 			};
 			return View(model);
 		}

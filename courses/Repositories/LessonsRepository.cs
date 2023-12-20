@@ -2,6 +2,7 @@
 using courses.Interfaces;
 using courses.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace courses.Repositories
 {
@@ -14,17 +15,37 @@ namespace courses.Repositories
 		}
 		public bool Create(Lesson entity)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				context.Lessons.Add(entity);
+				context.SaveChanges();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		public bool Delete(Lesson entity)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				context.Remove(entity);
+				context.SaveChanges();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		public Lesson Get(int id)
 		{
-			return context.Lessons.Where(lesson => lesson.Id == id).First();
+			return context.Lessons.Where(lesson => lesson.Id == id)
+				.Include(lesson => lesson.Module)
+				.First();
 		}
 
 		public IEnumerable<Lesson> GetAll()
@@ -34,7 +55,16 @@ namespace courses.Repositories
 
 		public bool Update(Lesson entity, Action<Lesson> update)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				update(entity);
+				context.SaveChanges();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 	}
 }

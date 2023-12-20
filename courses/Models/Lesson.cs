@@ -17,8 +17,6 @@ namespace courses.Models
         [Required]
         public string Content { get; set; }
 
-
-        //[Required] ?
         public int ModuleId { get; set; }
         public Module Module { get; set; }
     }
