@@ -31,5 +31,10 @@ namespace courses.Repositories
 		{
 			throw new NotImplementedException();
 		}
+
+		public bool Update(Lesson entity, Action<Lesson> update)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

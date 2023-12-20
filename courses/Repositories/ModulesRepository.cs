@@ -21,7 +21,16 @@ namespace courses.Repositories
 
 		public bool Delete(Module entity)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				context.Remove(entity);
+				context.SaveChanges();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		public Module Get(int id)
@@ -30,6 +39,11 @@ namespace courses.Repositories
 		}
 
 		public IEnumerable<Module> GetAll()
+		{
+			throw new NotImplementedException();
+		}
+
+		public bool Update(Module entity, Action<Module> update)
 		{
 			throw new NotImplementedException();
 		}

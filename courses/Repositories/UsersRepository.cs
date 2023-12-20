@@ -47,5 +47,10 @@ namespace courses.Repositories
 			User user = context.Users.Include(user => user.CoursesAuthorship).Where(user => user.Id == id).First();
 			return user;
 		}
+
+		public bool Update(User entity, Action<User> update)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

@@ -3,36 +3,38 @@
     margin-bottom: 70px;
 }
 
-.row{
+.row {
     margin: 10px;
 }
-.col{
+
+.col {
     margin: 0px;
     padding: 0px;
 }
-.card{
+
+.card {
     border-radius: 15px;
     padding: 0px;
 }
 
-.courses-box{
+.courses-box {
     margin: auto;
     max-width: 800px;
 }
 
 
-a{
+a {
     cursor: pointer;
 }
 
-a.card{
-    margin:0px;
-    align-items: center;
-    justify-content: center;
-    padding: 0px;
-    height: 100%;
-    width: 50%;
-}
+    a.card {
+        margin: 0px;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+        height: 100%;
+        width: 50%;
+    }
 
 .btn-grad {
     background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%);
@@ -52,7 +54,7 @@ a.card{
         text-decoration: none;
     }
 
-.button{
+.button {
     width: 200px;
     margin: auto;
     margin-top: 50px;
@@ -66,7 +68,6 @@ a.card{
     margin-top: 10px;
 }
 
-.delete-btn:hover {
-    color: ghostwhite;
-}
-
+    .delete-btn:hover {
+        color: ghostwhite;
+    }

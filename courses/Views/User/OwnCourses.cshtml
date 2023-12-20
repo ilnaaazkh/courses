@@ -28,13 +28,16 @@
 				</a>
 			</div>
 			<div class="col">
-				<a class="card delete" href = @Url.RouteUrl(new { controller = "Courses", action = "Delete", id = course.Id})>
-					<img alt="Delete" src="/img/delete.svg" width="32" height="32" />
-				</a>
+
+				<form asp-action="Delete" asp-controller="Courses" asp-route-id="@course.Id">
+					<button type="submit" class="btn delete-btn">
+						Удалить курс
+					</button>
+				</form>
 			</div>
 		</div>
 	}
 
 </div>
-	
+
 <a asp-action="Create" asp-controller="Courses" class="btn btn-primary btn-grad button">Создать курс</a>

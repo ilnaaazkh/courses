@@ -73,7 +73,21 @@ namespace courses.Repositories
 
 		public Course GetCourseWithAuthors(int id)
 		{
-			return context.Courses.Include(c => c.Authors).FirstOrDefault(c => c.Id == id);
+			return context.Courses.Include(c => c.Authors).Include(c => c.Modules).FirstOrDefault(c => c.Id == id);
+		}
+
+		public bool Update(Course entity, Action<Course> update)
+		{
+			try
+			{
+				update(entity);
+				context.SaveChanges();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 	}
 }

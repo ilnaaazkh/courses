@@ -1,4 +1,6 @@
 ﻿@model courses.ViewModels.CourseCreateViewModel;
+<link rel="stylesheet" href="~/css/EditCourse.css" asp-append-version="true" />
+
 <h1 class="text-center">Создать новый курс</h1>
 
 
@@ -6,6 +8,7 @@
 	<form asp-action="Create" asp-controller="Courses" method="post">
 		<div class="form-outline" data-mdb-input-init>
 			<label class="form-label" for="typeText">Название курса</label>
+			<span asp-validation-for="Title"></span>
 			<input asp-for="Title" type="text" id="typeText" class="form-control" />
 		</div>
 
