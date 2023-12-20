@@ -16,7 +16,16 @@ namespace courses.Repositories
 
 		public bool Create(Module entity)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				context.Modules.Add(entity);
+				context.SaveChanges();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		public bool Delete(Module entity)
@@ -35,7 +44,9 @@ namespace courses.Repositories
 
 		public Module Get(int id)
 		{
-			return context.Modules.Include(module => module.Lessons).Where(module => module.Id == id).First();
+			return context.Modules.Where(module => module.Id == id)
+				.Include(module => module.Course)
+				.Include(module => module.Lessons).First();
 		}
 
 		public IEnumerable<Module> GetAll()
@@ -45,7 +56,16 @@ namespace courses.Repositories
 
 		public bool Update(Module entity, Action<Module> update)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				update(entity);
+				context.SaveChanges();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 	}
 }

@@ -59,4 +59,4 @@
 	}
 </div>
 
-@*<a asp-action="Create" asp-controller="Courses" class="btn btn-primary btn-grad button">Создать курс</a>*@
+<a href=@Url.RouteUrl(new { controller = "Module", action = "Create", courseId = Model.Id}) class="btn btn-primary btn-grad button">Добавить модуль</a>

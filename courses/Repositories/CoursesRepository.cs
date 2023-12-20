@@ -40,7 +40,6 @@ namespace courses.Repositories
 			}
 		}
 
-
 		public Course Get(int id)
 		{
 			throw new NotImplementedException();

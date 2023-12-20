@@ -16,7 +16,6 @@ namespace courses.Models
         [Required] //TODO:Check if > 0
         public int OrderNumber { get; set; }
 
-        //[Required] ???
         public int CourseId { get; set; }   
         public Course Course { get; set;}
 
