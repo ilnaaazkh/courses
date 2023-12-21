@@ -13,7 +13,7 @@ namespace courses.Models
         [MaxLength(200)]
         public string? Description { get; set; }
         
-        [Required] //TODO:Check if > 0
+        [Required] 
         public int OrderNumber { get; set; }
 
         public int CourseId { get; set; }   

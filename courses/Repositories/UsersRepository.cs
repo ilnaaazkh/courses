@@ -16,9 +16,16 @@ namespace courses.Repositories
 
 		public bool Create(User entity)
 		{
-			var result = context.Users.Add(entity);
-			var res = context.SaveChanges();
-			return true;
+			try
+			{
+				var result = context.Users.Add(entity);
+				var res = context.SaveChanges();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		public bool Delete(User entity)
@@ -38,14 +45,28 @@ namespace courses.Repositories
 
 		public User GetUserWithCourses(int id)
 		{
-			User user = context.Users.Include(user => user.Courses).Where(user => user.Id == id).First();
-			return user;
+			try
+			{
+				User user = context.Users.Include(user => user.Courses).Where(user => user.Id == id).First();
+				return user;
+			}
+			catch
+			{
+				return null;
+			}
 		}
 
 		public User GetUserWithOwnCourses(int id)
 		{
-			User user = context.Users.Include(user => user.CoursesAuthorship).Where(user => user.Id == id).First();
-			return user;
+			try
+			{
+				User user = context.Users.Include(user => user.CoursesAuthorship).Where(user => user.Id == id).First();
+				return user;
+			}
+			catch
+			{
+				return null;
+			}
 		}
 
 		public bool Update(User entity, Action<User> update)

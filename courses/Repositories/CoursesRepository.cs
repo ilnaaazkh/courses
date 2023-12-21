@@ -35,7 +35,8 @@ namespace courses.Repositories
 				context.SaveChanges();
 				return true;
 			}
-			catch{
+			catch
+			{
 				return false;
 			}
 		}
@@ -47,12 +48,26 @@ namespace courses.Repositories
 
 		public IEnumerable<Course> GetAll()
 		{
-			return context.Courses;
+			try
+			{
+				return context.Courses;
+			}
+			catch
+			{
+				return null;
+			}
 		}
 
 		public Course GetCourse(int id)
 		{
-			return context.Courses.Include(c => c.Modules).FirstOrDefault(c => c.Id == id);
+			try
+			{
+				return context.Courses.Include(c => c.Modules).FirstOrDefault(c => c.Id == id);
+			}
+			catch
+			{
+				return null;
+			}
 		}
 
 		public bool AddStudent(User user, Course course)
@@ -72,7 +87,14 @@ namespace courses.Repositories
 
 		public Course GetCourseWithAuthors(int id)
 		{
-			return context.Courses.Include(c => c.Authors).Include(c => c.Modules).FirstOrDefault(c => c.Id == id);
+			try
+			{
+				return context.Courses.Include(c => c.Authors).Include(c => c.Modules).FirstOrDefault(c => c.Id == id);
+			}
+			catch
+			{
+				return null;
+			}
 		}
 
 		public bool Update(Course entity, Action<Course> update)

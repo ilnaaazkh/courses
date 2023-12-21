@@ -43,9 +43,16 @@ namespace courses.Repositories
 
 		public Lesson Get(int id)
 		{
-			return context.Lessons.Where(lesson => lesson.Id == id)
-				.Include(lesson => lesson.Module)
-				.First();
+			try
+			{
+				return context.Lessons.Where(lesson => lesson.Id == id)
+					.Include(lesson => lesson.Module)
+					.First();
+			}
+			catch
+			{
+				return null;
+			}
 		}
 
 		public IEnumerable<Lesson> GetAll()
