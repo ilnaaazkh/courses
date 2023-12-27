@@ -13,7 +13,6 @@ namespace courses.Models
         [MaxLength(400)]
         public string? Description { get; set; }
         
-        //TODO: Check if duration > 0
         public int? Duration { get; set; } //In semestrs
 
         public List<User> Students { get; set; } = new();
