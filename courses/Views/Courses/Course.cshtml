@@ -8,7 +8,7 @@
 <div class="modules-box">
 	@foreach (var module in ViewBag.course.Modules)
 	{
-		<a>
+		<a href = @Url.RouteUrl(new { controller = "Module", action = "Index", id = module.Id})>
 			<div class="card">
 				<div class="card-body">
 					<h5 class="card-title">@module.Title</h5>

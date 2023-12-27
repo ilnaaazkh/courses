@@ -14,7 +14,7 @@
                             <h2 class="text-uppercase text-center mb-5">Вход</h2>
 
                             <form asp-controller="user" asp-action="login" method="post">
-                                <input asp-for="ReturnUrl" type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                                <input asp-for="ReturnUrl" type="hidden" value="@ViewBag.returnUrl" />
                                 <div class="form-outline mb-4">
                                     <input asp-for="Email" type="text" id="form3Example1cg" class="form-control form-control-lg" />
                                     <label asp-for="Email" class="form-label" for="form3Example1cg">E-mail</label>

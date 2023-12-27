@@ -7,5 +7,7 @@ namespace courses.Interfaces
         Course GetCourse(int id);
 
         bool AddStudent(User user, Course course);
+
+        Course GetCourseWithAuthors(int id);
     }
 }

@@ -1,0 +1,72 @@
+﻿h2 {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.row{
+    margin: 10px;
+}
+.col{
+    margin: 0px;
+    padding: 0px;
+}
+.card{
+    border-radius: 15px;
+    padding: 0px;
+}
+
+.courses-box{
+    margin: auto;
+    max-width: 800px;
+}
+
+
+a{
+    cursor: pointer;
+}
+
+a.card{
+    margin:0px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    height: 100%;
+    width: 50%;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%);
+    margin: 10px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: ghostwhite;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 30px;
+    display: block;
+}
+
+    .btn-grad:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+
+.button{
+    width: 200px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.delete-btn {
+    background: #f44336;
+    border-radius: 15px;
+    color: ghostwhite;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.delete-btn:hover {
+    color: ghostwhite;
+}
+

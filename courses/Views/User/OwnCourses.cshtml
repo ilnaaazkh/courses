@@ -1,0 +1,43 @@
+﻿@model List<Course>
+
+<link rel="stylesheet" href="~/css/my_courses.css" asp-append-version="true" />
+
+
+<div class="course-title">
+	<h2>Курсы, созданные Вами</h2>
+</div>
+
+
+<div class="courses-box container">
+	@foreach (var course in Model)
+	{
+		<div class="row">
+			<div class="col-8">
+				<a href=@Url.RouteUrl(new { controller = "Courses", action = "Course", id = course.Id})>
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">@course.Title</h5>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col">
+				<a class="card" href=@Url.RouteUrl(new { controller = "Courses", action = "Edit", id = course.Id})>
+					<img alt="Edit" src="/img/edit.svg" width="32" height="32" />
+				</a>
+			</div>
+			<div class="col">
+
+				<form asp-action="Delete" asp-controller="Courses" asp-route-id="@course.Id">
+					<button type="submit" class="btn delete-btn">
+						Удалить курс
+					</button>
+				</form>
+			</div>
+		</div>
+	}
+
+</div>
+
+<a asp-action="Create" asp-controller="Courses" class="btn btn-primary btn-grad button">Создать курс</a>

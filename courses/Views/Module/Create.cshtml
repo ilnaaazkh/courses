@@ -1,0 +1,35 @@
+﻿@model courses.ViewModels.EditModuleViewModel;
+<link rel="stylesheet" href="~/css/EditCourse.css" asp-append-version="true" />
+
+
+<h1 class="text-center">Создать новый модуль</h1>
+
+
+<div class="container">
+	<form asp-action="Create" asp-controller="Module" method="post">
+		<input hidden asp-for="CourseId" value="@ViewBag.CourseId" />
+		<div class="form-outline" data-mdb-input-init>
+			<label class="form-label" for="typeText">Название модуля</label>
+			<span asp-validation-for="Title"></span>
+			<input asp-for="Title" type="text" id="typeText" class="form-control" />
+		</div>
+
+		<div class="form-outline" data-mdb-input-init>
+			<label class="form-label">Описание модуля</label>
+			<textarea asp-for="Description" class="form-control" rows="4" maxlength="400"></textarea>
+		</div>
+
+		<div class="form-outline" data-mdb-input-init>
+			<label class="form-label">Порядковый номер модуля</label>
+			<input asp-for="OrderNumber" class="form-control" rows="4" maxlength="400" />
+		</div>
+
+		<div class="d-flex justify-content-center">
+			<button type="submit"
+					class="btn btn-success btn-block btn-lg btn-grad">
+				Создать
+			</button>
+		</div>
+	</form>
+</div>
+

@@ -1,0 +1,22 @@
+﻿@model List<Course>
+
+<link rel="stylesheet" href="~/css/my_courses.css" asp-append-version="true" />
+
+
+<div class="course-title">
+	<h2>Курсы, на которые Вы поступили</h2>
+</div>
+
+
+<div class="courses-box">
+	@foreach (var course in Model)
+	{
+		<a href=@Url.RouteUrl(new { controller = "Courses", action = "Course", id = course.Id})>
+			<div class="card m-1">
+				<div class="card-body">
+					<h5 class="card-title">@course.Title</h5>
+				</div>
+			</div>
+		</a>
+	}
+</div>

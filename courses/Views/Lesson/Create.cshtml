@@ -1,0 +1,33 @@
+﻿@model courses.ViewModels.EditLessonViewModel
+<link rel="stylesheet" href="~/css/EditCourse.css" asp-append-version="true" />
+
+<h1 class="text-center">Создать новый урок</h1>
+
+<div class="container">
+	<form asp-action="Create" asp-controller="Lesson" method="post">
+		<input hidden asp-for="ModuleId" value="@ViewBag.ModuleId" />
+		<div class="form-outline" data-mdb-input-init>
+			<label class="form-label" for="typeText">Название урока</label>
+			<span asp-validation-for="Title"></span>
+			<input asp-for="Title" type="text" id="typeText" class="form-control" />
+		</div>
+
+		<div class="form-outline" data-mdb-input-init>
+			<label class="form-label">Содержание урока</label>
+			<textarea asp-for="Content" class="form-control" rows="20" maxlength="10000"></textarea>
+		</div>
+
+		<div class="form-outline" data-mdb-input-init>
+			<label class="form-label">Порядковый номер урока</label>
+			<input asp-for="OrderNumber" class="form-control" rows="4" maxlength="400"/>
+		</div>
+
+		<div class="d-flex justify-content-center">
+			<button type="submit"
+					class="btn btn-success btn-block btn-lg btn-grad">
+				Создать урок
+			</button>
+		</div>
+	</form>
+</div>
+
