@@ -17,7 +17,7 @@ namespace courses.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=LAPTOP-RA7DRFGM;Database=SkillTechDB;Integrated Security=true;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("Server=localhost;Database=SkillTechDB;Integrated Security=true;TrustServerCertificate=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
