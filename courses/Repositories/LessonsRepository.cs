@@ -57,7 +57,14 @@ namespace courses.Repositories
 
 		public IEnumerable<Lesson> GetAll()
 		{
-			throw new NotImplementedException();
+			try
+			{
+				return context.Lessons;
+			}
+			catch
+			{
+				return Enumerable.Empty<Lesson>(); ;
+			}
 		}
 
 		public bool Update(Lesson entity, Action<Lesson> update)

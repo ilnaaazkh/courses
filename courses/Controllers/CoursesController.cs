@@ -31,7 +31,7 @@ namespace courses.Controllers
 
 		public async Task<IActionResult> CourseAsync(int id)
 		{
-			var course = coursesRepository.GetCourse(id);
+			var course = coursesRepository.Get(id);
 			if (course == null)
 			{
 				return Redirect("/courses/index"); ;

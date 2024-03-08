@@ -41,11 +41,6 @@ namespace courses.Repositories
 			}
 		}
 
-		public Course Get(int id)
-		{
-			throw new NotImplementedException();
-		}
-
 		public IEnumerable<Course> GetAll()
 		{
 			try
@@ -54,11 +49,11 @@ namespace courses.Repositories
 			}
 			catch
 			{
-				return null;
+				return Enumerable.Empty<Course>(); ;
 			}
 		}
 
-		public Course GetCourse(int id)
+		public Course Get(int id)
 		{
 			try
 			{

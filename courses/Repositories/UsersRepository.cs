@@ -40,7 +40,14 @@ namespace courses.Repositories
 
 		public IEnumerable<User> GetAll()
 		{
-			throw new NotImplementedException();
+			try
+			{
+				return context.Users;
+			}
+			catch
+			{
+				return Enumerable.Empty<User>();
+			}
 		}
 
 		public User GetUserWithCourses(int id)
