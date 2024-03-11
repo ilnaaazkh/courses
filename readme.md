@@ -8,3 +8,6 @@
  * RDBMS - MS SQL Server
 
 Также в приложениии реализована базовая регистрация и аутентификация пользователей.
+
+![image](https://github.com/ilnaaazkh/courses/assets/106154377/c8850399-2137-4a5c-b2ba-afdecf2d6624)
+
