@@ -1,7 +1,12 @@
 ﻿@model Lesson
+@using Markdig;
+@using Markdig.SyntaxHighlighting
 
-<h1 class="text-center">@Model.Title</h1>
+<h1 class="w-50 text-left mx-auto">@Model.Title</h1>
 
-<div class="card rounded w-50 mx-auto px-1 py-1">
-	<p>@Model.Content</p>
+<div class="w-50 mx-auto py-4">
+	@{
+		var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().UseSyntaxHighlighting().Build();
+		@Html.Raw(Markdown.ToHtml(Model.Content, pipeline))
+	}
 </div>
